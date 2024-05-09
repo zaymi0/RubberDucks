@@ -5,6 +5,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
+
 public class HomePage {
     private static By successMassageLocator = By.cssSelector(".notice.success");
     private static By errorMassageLocator = By.cssSelector(".notice.errors");

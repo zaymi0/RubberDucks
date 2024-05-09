@@ -5,6 +5,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.title;
 
+
 public class PageHead {
     private static By numberOfItemsInCartLockator = By.cssSelector("span.quantity");
     @Step("Проверка на наличие в корзине большего количества товара, чем есть на складе")
