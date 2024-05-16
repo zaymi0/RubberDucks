@@ -3,6 +3,7 @@ import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 
+
 public class LoginPage {
     private static By loinInputLocator = By.name("email");
     private static By passwordInputLocator = By.name("password");

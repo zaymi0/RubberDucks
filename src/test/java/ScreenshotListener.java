@@ -12,7 +12,6 @@ public class ScreenshotListener implements ITestListener {
     @Override
     public void onTestFailure(ITestResult result) {
         File screenshot = Selenide.screenshot(OutputType.FILE);
-
         try {
             Allure.addAttachment(result.getMethod().getMethodName(),new FileInputStream(screenshot));
         } catch (FileNotFoundException e) {

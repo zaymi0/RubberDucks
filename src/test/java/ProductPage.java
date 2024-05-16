@@ -3,6 +3,7 @@ import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 
+
 public class ProductPage {
     private static By stockStatusLockator = By.cssSelector("div.stock-available>span.value");
     private static By fieldForEnteringTheQuantityOfGoodsLockator = By.cssSelector("input[type='number']");

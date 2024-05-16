@@ -1,9 +1,8 @@
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.testng.SoftAsserts;
-import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
 import org.testng.ITestResult;
@@ -11,6 +10,10 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 
 import static com.codeborne.selenide.Selenide.*;
 
@@ -27,16 +30,16 @@ public void setup() {
 }
 @AfterMethod
 public void teardown(ITestResult testResult) {
-//    if (testResult.getStatus() == ITestResult.FAILURE) {
-//        File screenshot = Selenide.screenshot(OutputType.FILE);
-//        try {
-//            Allure.addAttachment(testResult.getMethod().getMethodName(),new FileInputStream(screenshot));
+    if (testResult.getStatus() == ITestResult.FAILURE) {
+        File screenshot = Selenide.screenshot(OutputType.FILE);
+        try {
+            Allure.addAttachment(testResult.getMethod().getMethodName(),new FileInputStream(screenshot));
 //            ReportPortal.emitLog(testResult.getMethod().getMethodName(), "ERROR",
 //                    Calendar.getInstance().getTime(),screenshot);
-//        } catch (FileNotFoundException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
     closeWebDriver();
 }
 
